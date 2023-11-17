@@ -25,7 +25,7 @@ const School = class School {
     }
     addStudent(student) {
         if(student instanceof Student && !this.students.includes(student)) {
-            if(student.age() >= 7){
+            if(student.age() >= 15) {
                 this.students.push(student);
                 student.setId(this.students.length)
             }

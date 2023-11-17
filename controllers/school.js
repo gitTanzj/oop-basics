@@ -1,13 +1,25 @@
-const School = require('../models/school').School
+const exampleData = require('../data/example')
 
 const getSchoolByName = ('/school/:name', (req, res) => {
-    res.send()
+    if (req.params.name === exampleData.school.name) {
+        res.json(exampleData.school)
+    }
 })
 
-const getSchoolStudents = ('/school/students', (req, res) => {
-    res.send()
+const getSchoolStudents = ('/school/:name/students', (req, res) => {
+    if (req.params.name === exampleData.school.name) {
+        res.json(exampleData.school.getStudents())
+    }
 })
 
-const getSchoolCourses = ('/school/courses', (req, res) => {
-    res.send()
+const getSchoolCourses = ('/school/:name/courses', (req, res) => {
+    if (req.params.name === exampleData.school.name) {
+        res.json(exampleData.school.getCourses())
+    }
 })
+
+module.exports = schoolController = {
+    getSchoolByName,
+    getSchoolStudents,
+    getSchoolCourses
+}
